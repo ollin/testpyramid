@@ -13,7 +13,7 @@ public class OfferCreation {
         this.validUntilProvider = checkNotNull(validUntilProvider, "validUntilProvider is mandatory!");
     }
 
-    Offer createOffer(Actor aCustomerRepresentative, Proposal proposal){
+    public Offer createOffer(Actor aCustomerRepresentative, Proposal proposal){
 
         final Offer offer = new Offer();
         // this is the business logic

@@ -17,3 +17,5 @@ include 'services:webservice'
 */
 
 rootProject.name = 'testpyramid'
+
+include 'test-use-cases', 'stage-010-unit-test'
