@@ -1,31 +1,20 @@
 package com.github.ollin.testpyramid.insurance.offer;
 
-import com.github.ollin.testpyramid.insurance.UC2Test;
+import com.github.ollin.testpyramid.insurance.UC2TestWithDummies;
+import org.junit.Test;
 
-import java.time.LocalDate;
+/**
+ * unit test.
+ */
+public class OfferCreationUnitTest extends UC2TestWithDummies {
 
-public class OfferCreationUnitTest extends UC2Test {
-
-    @Override
-    protected OfferCreation anOfferCreation() {
-        return new OfferCreation(aValidUntilProvider());
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowExceptionIfCustomerRepresentativeIsNull() throws Exception {
+        anOfferCreation().createOffer(null, aProposal());
     }
 
-
-    @Override
-    protected Actor aCustomerRepresentative() {
-        return new Actor() {
-        };
-    }
-
-    @Override
-    protected ValidUntilProvider aValidUntilProvider() {
-        return LocalDate::now;
-    }
-
-    @Override
-    protected Proposal aProposal() {
-        return new Proposal() {
-        };
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowExceptionIfProposalIsNull() throws Exception {
+        anOfferCreation().createOffer(aCustomerRepresentative(), null);
     }
 }

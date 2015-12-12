@@ -14,6 +14,8 @@ public class OfferCreation {
     }
 
     public Offer createOffer(Actor aCustomerRepresentative, Proposal proposal){
+        checkNotNull(aCustomerRepresentative, "aCustomerRepresentative is mandatory!");
+        checkNotNull(proposal, "proposal is mandatory!");
 
         final Offer offer = new Offer();
         // this is the business logic

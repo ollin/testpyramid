@@ -16,6 +16,12 @@ dependencies {
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
 }
 
+configure(subprojects.findAll {it.name.startsWith("stage") && it.name.endsWith("test")}) {
+    dependencies {
+        testCompile project(':test-use-cases')
+    }
+}
+
 idea {
     project {
         jdkName = '1.8'

@@ -18,4 +18,8 @@ include 'services:webservice'
 
 rootProject.name = 'testpyramid'
 
-include 'test-use-cases', 'stage-010-unit-test'
+include (
+        'test-use-cases'
+        , 'stage-010-unit-test'
+        , 'stage-020-component-test'
+)

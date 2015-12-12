@@ -11,9 +11,10 @@ import com.github.ollin.testpyramid.insurance.offer.ValidUntilProvider;
 import org.junit.Test;
 
 /**
- *
+ * Test for UC2.
  */
 public abstract class UC2Test {
+
     @Test
     public void createOffer() throws Exception {
         // given
