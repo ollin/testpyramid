@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Proposals</title>
+</head>
+<body>
+
+<h3>Proposals</h3>
+
+
+
+<ul th:each="proposals : ${proposals}">
+    <li>
+        <a href="proposal.html" th:href="@{'/proposals/' + ${proposals.id}}">
+            <span>proposal #</span><span th:text="${proposals.id}">id</span>
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>

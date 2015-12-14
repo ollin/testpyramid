@@ -6,7 +6,7 @@ package com.github.ollin.testpyramid.insurance.proposal;
 public class ProposalForIndividualBuilder4Tests {
 
     public static ProposalForIndividual aCompleteProposalForIndividuals() {
-        ProposalForIndividual result = new ProposalForIndividual();
+        ProposalForIndividual result = new ProposalForIndividual(1);
         result.setCustomerName("gonso");
         return result;
     }

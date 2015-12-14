@@ -4,6 +4,6 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.13'
     compile 'com.google.guava:guava:19.0'
     compile 'org.projectlombok:lombok:1.16.6'
-    compile "org.spockframework:spock-core:1.0-groovy-2.4"
-    compile rootProject
+    compile 'junit:junit:4.12'
+    compile project(':domain-model')
 }

@@ -30,6 +30,16 @@ public abstract class UC2TestWithDummies extends UC2Test {
 
     @Override
     protected Proposal aProposal() {
-        return () -> true;
+        return new Proposal() {
+            @Override
+            public boolean isComplete() {
+                return true;
+            }
+
+            @Override
+            public int getId() {
+                return 1;
+            }
+        };
     }
 }

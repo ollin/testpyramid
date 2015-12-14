@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Proposal</title>
+</head>
+<body>
+
+<h3>Proposal #<span th:text="${proposal.id}">id</span></h3>
+
+
+<form action="#" th:action="@{/offer}" th:object="${proposal}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <p><input type="submit" value="Create Offer" /> </p>
+</form>
+
+
+
+</body>
+</html>

@@ -15,7 +15,7 @@ public class ProposalForIndividualTest {
 
     @Before
     public void setUp() throws Exception {
-        proposal = new ProposalForIndividual();
+        proposal = new ProposalForIndividual(1);
     }
 
     @Test
