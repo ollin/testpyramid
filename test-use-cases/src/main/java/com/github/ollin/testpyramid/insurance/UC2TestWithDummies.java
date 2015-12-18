@@ -9,7 +9,7 @@ import com.github.ollin.testpyramid.insurance.offer.ValidUntilProvider;
 import java.time.LocalDate;
 
 /**
- *
+ *  abstract implementation with dummy objects.
  */
 public abstract class UC2TestWithDummies extends UC2Test {
 
