@@ -8,6 +8,11 @@ import org.junit.Test;
  */
 public class OfferCreationUnitTest extends UC2TestWithDummies {
 
+    @Override
+    protected OfferCreation anOfferCreation() {
+        return new OfferCreationDefault(aValidUntilProvider());
+    }
+
     @Test(expected = NullPointerException.class)
     public void shouldThrowExceptionIfCustomerRepresentativeIsNull() throws Exception {
         anOfferCreation().createOffer(null, aProposal());

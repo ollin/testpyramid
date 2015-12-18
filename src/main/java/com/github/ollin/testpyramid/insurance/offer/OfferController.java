@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OfferController {
 
     private final ProposalsRepository proposalsRepository;
-    private final OfferCreation offerCreation;
+    private final OfferCreationDefault offerCreation;
 
     @Autowired
     public OfferController(ProposalsRepository proposalsRepository) {
-        this(proposalsRepository, new OfferCreation(new ValidUntilCalculator()));
+        this(proposalsRepository, new OfferCreationDefault(new ValidUntilCalculator()));
     }
-    public OfferController(ProposalsRepository proposalsRepository, OfferCreation offerCreation) {
+    public OfferController(ProposalsRepository proposalsRepository, OfferCreationDefault offerCreation) {
         this.proposalsRepository = proposalsRepository;
         this.offerCreation = offerCreation;
     }

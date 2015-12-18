@@ -1,6 +1,7 @@
 package com.github.ollin.testpyramid.insurance;
 
 import com.github.ollin.testpyramid.insurance.offer.Actor;
+import com.github.ollin.testpyramid.insurance.offer.Offer;
 import com.github.ollin.testpyramid.insurance.offer.OfferCreation;
 import com.github.ollin.testpyramid.insurance.offer.Proposal;
 import com.github.ollin.testpyramid.insurance.offer.ValidUntilProvider;
@@ -20,7 +21,7 @@ public abstract class UC2TestWithDummies extends UC2Test {
 
     @Override
     protected OfferCreation anOfferCreation() {
-        return new OfferCreation(aValidUntilProvider());
+        return (aCustomerRepresentative, proposal) -> new Offer();
     }
 
     @Override
