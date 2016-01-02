@@ -10,7 +10,9 @@ buildscript {
 apply plugin: 'spring-boot'
 
 dependencies {
-    testCompile 'net.sourceforge.jwebunit:jwebunit-htmlunit-plugin:3.3'
+    testCompile ('net.sourceforge.jwebunit:jwebunit-htmlunit-plugin:3.3') {
+        exclude group: 'javax.servlet', module: 'servlet-api'
+    }
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile rootProject
 }

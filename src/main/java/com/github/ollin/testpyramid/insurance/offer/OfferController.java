@@ -3,10 +3,9 @@ package com.github.ollin.testpyramid.insurance.offer;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import com.github.ollin.testpyramid.insurance.proposal.ProposalRow;
 import com.github.ollin.testpyramid.insurance.proposal.ProposalsRepository;
 import com.github.ollin.testpyramid.insurance.times.ValidUntilCalculator;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,9 +33,9 @@ public class OfferController {
     }
 
     @RequestMapping(value = "/offer", method = POST)
-    public String greetingSubmit(@ModelAttribute ProposalId proposalId, Model model) {
+    public String offerSubmit(@ModelAttribute ProposalRow proposalRow, Model model) {
 
-        Proposal proposal = proposalsRepository.getById(proposalId.getId());
+        Proposal proposal = proposalsRepository.getById(proposalRow.getId());
 
         model.addAttribute("offer", offerCreation.createOffer(
             new Actor() {},
@@ -44,9 +43,5 @@ public class OfferController {
         );
 
         return "offer";
-    }
-
-    public static class ProposalId {
-        @Getter @Setter private int id;
     }
 }

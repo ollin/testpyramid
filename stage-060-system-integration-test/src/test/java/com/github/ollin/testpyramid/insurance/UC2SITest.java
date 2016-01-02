@@ -1,12 +1,14 @@
 package com.github.ollin.testpyramid.insurance;
 
+import static net.sourceforge.jwebunit.junit.JWebUnit.assertTitleEquals;
 import static net.sourceforge.jwebunit.junit.JWebUnit.beginAt;
+import static net.sourceforge.jwebunit.junit.JWebUnit.clickButton;
+import static net.sourceforge.jwebunit.junit.JWebUnit.clickLink;
 import static net.sourceforge.jwebunit.junit.JWebUnit.setBaseUrl;
 
 import com.github.ollin.testpyramid.insurance.offer.Actor;
-import com.github.ollin.testpyramid.insurance.offer.OfferCreationDefault;
-import com.github.ollin.testpyramid.insurance.offer.Proposal;
-import com.github.ollin.testpyramid.insurance.offer.ValidUntilProvider;
+import com.github.ollin.testpyramid.insurance.offer.Offer;
+import com.github.ollin.testpyramid.insurance.offer.OfferCreation;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -19,7 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(Application.class)
 @WebIntegrationTest
-public class UC2SITest extends UC2Test {
+public class UC2SITest extends UC2TestWithDummies {
 
     @Before
     public void setUp() throws Exception {
@@ -30,26 +32,23 @@ public class UC2SITest extends UC2Test {
     protected Actor aCustomerRepresentative() {
 
         setBaseUrl("http://localhost:8080");
-
         beginAt("/proposals");
 
 
-       return new Actor() {
-       };
+        return new Actor() {
+        };
     }
 
     @Override
-    protected OfferCreationDefault anOfferCreation() {
-        return null;
-    }
+    protected OfferCreation anOfferCreation() {
+        clickLink("proposal-2");
 
-    @Override
-    protected ValidUntilProvider aValidUntilProvider() {
-        return null;
-    }
+        return (aCustomerRepresentative, proposal) -> {
 
-    @Override
-    protected Proposal aProposal() {
-        return null;
+            clickButton("create-offer");
+            assertTitleEquals("Offer");
+
+            return new Offer();
+        };
     }
 }

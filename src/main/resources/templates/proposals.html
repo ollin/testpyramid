@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Proposals</title>
@@ -8,12 +9,10 @@
 
 <h3>Proposals</h3>
 
-
-
-<ul th:each="proposals : ${proposals}">
+<ul th:each="proposalRow : ${proposals}">
     <li>
-        <a href="proposal.html" th:href="@{'/proposals/' + ${proposals.id}}">
-            <span>proposal #</span><span th:text="${proposals.id}">id</span>
+        <a th:id="'proposal-'+ ${proposalRow.id}" href="proposal.html" th:href="@{'/proposals/' + ${proposalRow.id}}">
+            <span>proposal #</span><span th:text="${proposalRow.id}">id</span>
         </a>
     </li>
 </ul>

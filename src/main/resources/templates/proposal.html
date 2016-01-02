@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Proposal</title>
 </head>
 <body>
 
-<h3>Proposal #<span th:text="${proposal.id}">id</span></h3>
+<h3>Proposal #<span th:text="${proposalRow.id}">id</span></h3>
 
 
-<form action="#" th:action="@{/offer}" th:object="${proposal}" method="post">
+<form action="#" th:action="@{/offer}" th:object="${proposalRow}" method="post">
     <input type="hidden" th:field="*{id}" />
-    <p><input type="submit" value="Create Offer" /> </p>
+    <p><input id="create-offer" type="submit" value="Create Offer" /> </p>
 </form>
 
 

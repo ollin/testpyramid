@@ -11,6 +11,8 @@ An insurance company manages his contacts, offers and proposals.
 
 ### UC-1 create proposal
 
+`. . .`
+
 ### UC-2 create an offer
 
 An customer representative wants to make the customer an offer
@@ -19,3 +21,5 @@ based on a given proposal.
 The offer should have a valid until date afterwards.
 
 ### UC-3 create a contract based on a signed offer
+
+`. . .`

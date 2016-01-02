@@ -1,5 +1,8 @@
 package com.github.ollin.testpyramid.insurance.proposal;
 
+import static com.github.ollin.testpyramid.insurance.proposal.ProposalRow.asRow;
+import static com.github.ollin.testpyramid.insurance.proposal.ProposalRow.asRows;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +23,16 @@ public class ProposalsController {
     @RequestMapping(path = "/proposals", method = RequestMethod.GET)
     public String proposals(Model model) {
 
-        model.addAttribute("proposals", proposalsRepository.findAll());
+        model.addAttribute("proposals", asRows(proposalsRepository.findAll()));
 
         return "proposals";
     }
 
+
     @RequestMapping(path = "/proposals/{id}", method = RequestMethod.GET)
     public String proposalPerId(@PathVariable int id, Model model) {
 
-        model.addAttribute("proposal", proposalsRepository.getById(id));
+        model.addAttribute("proposalRow", asRow(proposalsRepository.getById(id)));
 
         return "proposal";
     }

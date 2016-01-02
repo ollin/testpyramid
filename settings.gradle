@@ -6,4 +6,5 @@ include (
         , 'stage-010-unit-test'
         , 'stage-020-component-test'
         , 'stage-060-system-integration-test'
+        , 'bdd-style'
 )
